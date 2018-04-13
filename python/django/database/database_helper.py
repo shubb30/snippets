@@ -78,7 +78,7 @@ class DatabaseHelper(object):
     def get_object(self, app_name, model, **kwargs):
         """ Fetch a Django database model instance.
 
-        @params>
+        @params:
             app_name: Name of the Django app
             model_name: Name of the model
             kwargs: keyword arguments to query
@@ -91,7 +91,7 @@ class DatabaseHelper(object):
     def get_object_or_none(self, app_name, model, **kwargs):
         """ Fetch a Django database model instance if it exists.
 
-        @params>
+        @params:
             app_name: Name of the Django app
             model_name: Name of the model
             kwargs: keyword arguments to query
@@ -109,7 +109,7 @@ class DatabaseHelper(object):
     def get_qs(self, app_name, model, **kwargs):
         """ Fetch a Django database Queryset.
 
-        @params>
+        @params:
             app_name: Name of the Django app
             model_name: Name of the model
             kwargs: keyword arguments to query
@@ -122,10 +122,10 @@ class DatabaseHelper(object):
     def create_object(self, app_name, model, **kwargs):
         """ Create a Django database entry.
 
-        @params>
+        @params:
             app_name: Name of the Django app
             model_name: Name of the model
-            kwargs: keyword arguments insert
+            kwargs: keyword arguments for insert
         @returns:
             Django object that was created.
         """
@@ -135,14 +135,14 @@ class DatabaseHelper(object):
     def get_or_create(self, app_name, model, defaults=None, **kwargs):
         """ Create a Django database entry if it does not exist.
 
-        @params>
+        @params:
             app_name: Name of the Django app
             model_name: Name of the model
             defaults: dictionary of keyword arguments to search for
             kwargs: keyword arguments insert
         @returns:
-            Django object that was created if it did not already exist.
-            Existing object if it already existed.
+            Tuple of the object created or fetched, and whether the
+            object was created or not (0/1).
         """
         if defaults is None:
             defaults = kwargs
@@ -151,7 +151,7 @@ class DatabaseHelper(object):
     def get_user_group(self, group_name):
         """ Fetch a Django user group.
 
-        @params>
+        @params:
             group_name: Name of the user group
         @returns:
             Django user group
@@ -163,7 +163,7 @@ class DatabaseHelper(object):
     def get_or_create_user_group(self, group_name):
         """ Fetch a Django user group, creating if doesn't exist
 
-        @params>
+        @params:
             group_name: Name of the user group
         @returns:
             Django user group
@@ -174,7 +174,7 @@ class DatabaseHelper(object):
     def get_or_create_permission(self, permission_name, content_type=None, name=None):
         """ Fetch a Django permission object, creating if doesn't exist
 
-        @params>
+        @params:
             permission_name: Short name of the permission (undercores, no spaces)
             content_type: Django content type for the permission
             name: Human readable name of permission (for Django Admin)
@@ -192,7 +192,7 @@ class DatabaseHelper(object):
     def get_content_type(self, app_name, model_name):
         """ Fetch a Django content type for the model, save to cache
 
-        @params>
+        @params:
             app_name: Name of the Django app
             model_name: Name of the model
         @returns:
